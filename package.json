@@ -16,6 +16,9 @@
     },
     {
       "url": "https://raw.githubusercontent.com/criascript/gly-cria-game/refs/heads/main/cria_game_gly.lua"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/diegofs01/brocos/refs/heads/main/src/game.lua"
     }
   ],
   "scripts": {
