@@ -30,7 +30,7 @@ async function processGame(game, index) {
     encoding: 'utf-8' 
   });
   
-  return {...JSON.parse(stdout), game_url: `${BASE_URL}/${gameHash}/game.lua`};
+  return {...JSON.parse(stdout), raw_url: `${BASE_URL}/${gameHash}/game.lua`};
 }
 
 (async () => {
@@ -45,9 +45,10 @@ async function processGame(game, index) {
     }
   }
   
+  results.sort((a, b) => a.title.localeCompare(b.title, undefined, { sensitivity: 'base' }))
   writeFileSync(
     path.join(DIST_DIR, 'games.json'),
-    JSON.stringify({ count: results.length, games: results }, null, 2)
+    JSON.stringify(results, null, 2)
   );
   
   console.log(`✅ Done! Processed ${results.length} games`);
